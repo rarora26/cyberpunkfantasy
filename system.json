@@ -113,6 +113,6 @@
   },
   "primaryTokenAttribute": "system.attributes.hp",
   "secondaryTokenAttribute": "system.resources.stress",
-  "manifest": "https://raw.githubusercontent.com/your‑github‑username/cyberpunkfantasy/main/system.json",
-  "download": "https://github.com/your‑github‑username/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
+  "manifest": "https://raw.githubusercontent.com/rarora26/cyberpunkfantasy/main/system.json",
+  "download": "https://github.com/rarora26/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
 }
