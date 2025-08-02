@@ -1,70 +1,197 @@
 <form class="cyberpunkfantasy actor-sheet" autocomplete="off">
-  <header class="sheet-header flexrow">
-    <div class="profile">
-      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+  <div class="sheet-title">Cyber‑Fantasy Character Sheet</div>
+
+  <!-- Top meta row -->
+  <div class="meta-grid">
+    <div class="meta-field">
+      <label>Name</label>
+      <input name="name" type="text" value="{{actor.name}}" placeholder="Character Name"/>
     </div>
-    <div class="header-fields flexcol">
-      <h1 class="char-name"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
-      <div class="resource-grid">
-        <div class="resource">
-          <label>Level</label>
-          <input type="number" name="system.level" value="{{system.level}}" min="0"/>
-        </div>
-        <div class="resource">
-          <label>HP</label>
-          <input type="number" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" min="0"/>
-          /
-          <input type="number" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" min="0"/>
-        </div>
-        <div class="resource">
-          <label>Temp HP</label>
-          <input type="number" name="system.attributes.hp.temp" value="{{system.attributes.hp.temp}}" min="0"/>
-        </div>
-        <div class="resource">
-          <label>Arcane Stress</label>
-          <input type="number" name="system.resources.stress.value" value="{{system.resources.stress.value}}" min="0"/>
-          /
-          <input type="number" name="system.resources.stress.threshold" value="{{system.resources.stress.threshold}}" min="0"/>
-        </div>
-      </div>
+    <div class="meta-field">
+      <label>Class</label>
+      <input name="system.class.name" type="text" value="{{system.class.name}}" placeholder="Class"/>
     </div>
-  </header>
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="stats">Stats</a>
-    <a class="item" data-tab="inventory">Inventory</a>
-    <a class="item" data-tab="features">Features</a>
-  </nav>
-  <section class="sheet-body">
-    <div class="tab stats" data-group="primary">
-      <h2>Ability Scores</h2>
-      <div class="abilities-grid">
+    <div class="meta-field">
+      <label>Level</label>
+      <input name="system.level" type="number" value="{{system.level}}" min="0"/>
+    </div>
+    <div class="meta-field">
+      <label>XP</label>
+      <input name="system.xp" type="number" value="{{system.xp}}" min="0"/>
+    </div>
+    <div class="meta-field">
+      <label>Player</label>
+      <input name="system.player" type="text" value="{{system.player}}" placeholder="Player Name"/>
+    </div>
+    <div class="meta-field">
+      <label>Archetype</label>
+      <input name="system.class.archetype" type="text" value="{{system.class.archetype}}" placeholder="Archetype"/>
+    </div>
+  </div>
+
+  <!-- Stats grid: attributes and derived values -->
+  <div class="stats-grid">
+    <div class="attributes-block">
+      <h3>Attributes</h3>
+      <div class="attribute-row">
         {{#each abilities as |ability key|}}
-        <div class="ability">
-          <label class="ability-name">{{key}}</label>
+        <div class="ability-field">
+          <label>{{key}}</label>
           <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" min="1"/>
-          <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+          <span class="modifier">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+        </div>
+        {{/each}}
+      </div>
+      <h4>Saves</h4>
+      <div class="saves-grid">
+        <div class="save-field">
+          <label>Fort</label>
+          <input type="number" name="system.saves.fort" value="{{system.saves.fort}}" min="0"/>
+        </div>
+        <div class="save-field">
+          <label>Ref</label>
+          <input type="number" name="system.saves.ref" value="{{system.saves.ref}}" min="0"/>
+        </div>
+        <div class="save-field">
+          <label>Will</label>
+          <input type="number" name="system.saves.will" value="{{system.saves.will}}" min="0"/>
+        </div>
+      </div>
+    </div>
+    <div class="derived-block">
+      <h3>Derived Stats</h3>
+      <div class="derived-field">
+        <label>Armor Class (AC)</label>
+        <input type="number" name="system.derived.ac" value="{{system.derived.ac}}" min="0"/>
+      </div>
+      <div class="derived-field">
+        <label>Arcane Threshold (AT)</label>
+        <input type="number" name="system.derived.threshold" value="{{system.derived.threshold}}" min="0"/>
+      </div>
+      <div class="derived-field">
+        <label>Hit Points (HP)</label>
+        <input type="number" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" min="0"/>
+        /
+        <input type="number" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" min="0"/>
+        <span class="temp">+<input type="number" name="system.attributes.hp.temp" value="{{system.attributes.hp.temp}}" min="0" placeholder="Temp"/></span>
+      </div>
+      <div class="derived-field">
+        <label>Initiative</label>
+        <input type="number" name="system.derived.initiative" value="{{system.derived.initiative}}" min="0"/>
+      </div>
+      <div class="derived-field">
+        <label>Speed (ft)</label>
+        <input type="number" name="system.derived.speed" value="{{system.derived.speed}}" min="0"/>
+      </div>
+      <div class="derived-field">
+        <label>Arcane Stress</label>
+        <input type="number" name="system.resources.stress.value" value="{{system.resources.stress.value}}" min="0"/>
+        /
+        <input type="number" name="system.resources.stress.threshold" value="{{system.resources.stress.threshold}}" min="0"/>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tab navigation -->
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="skills">Skills</a>
+    <a class="item" data-tab="cybernetics">Cybernetics</a>
+    <a class="item" data-tab="spells">Spells</a>
+    <a class="item" data-tab="features">Features</a>
+    <a class="item" data-tab="inventory">Inventory</a>
+  </nav>
+
+  <!-- Tab bodies -->
+  <section class="sheet-body">
+    <!-- Skills tab -->
+    <div class="tab" data-group="primary" data-tab="skills">
+      <h3>Skills</h3>
+      <p><em>(circle prof: U T E M L) • add ability mod + prof bonus</em></p>
+      <div class="skills-grid">
+        {{#each system.skills as |skill key|}}
+        <div class="skill-field" data-skill="{{key}}">
+          <label>{{skill.label}} ({{skill.ability}})</label>
+          <input type="number" name="system.skills.{{key}}.value" value="{{skill.value}}" min="0"/>
         </div>
         {{/each}}
       </div>
     </div>
-    <div class="tab inventory" data-group="primary">
-      <h2>Inventory</h2>
-      {{#if actor.items.size}}
-      <ol class="items-list">
-        {{#each actor.items as |item|}}
-        <li class="item flexrow" data-item-id="{{item.id}}">
-          <img src="{{item.img}}" class="item-img" title="{{item.name}}" width="32" height="32"/>
-          <h4 class="item-name">{{item.name}}</h4>
-        </li>
-        {{/each}}
-      </ol>
-      {{else}}
-      <p>No items.</p>
-      {{/if}}
+    <!-- Cybernetics tab -->
+    <div class="tab" data-group="primary" data-tab="cybernetics">
+      <h3>Cybernetic Implants</h3>
+      <table class="cybernetics-table">
+        <thead>
+          <tr><th>Slot</th><th>Tier</th><th>Effect</th></tr>
+        </thead>
+        <tbody>
+          {{#each system.cybernetics as |implant slot|}}
+          <tr data-slot="{{slot}}">
+            <td>{{slot}}</td>
+            <td><input type="text" name="system.cybernetics.{{slot}}.tier" value="{{implant.tier}}" placeholder="T"/></td>
+            <td><input type="text" name="system.cybernetics.{{slot}}.effect" value="{{implant.effect}}"/></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
-    <div class="tab features" data-group="primary">
-      <h2>Features</h2>
-      <p>Use this tab to list class abilities, feats, cybernetics and other special rules.  Drag items from the compendium or create new ones.</p>
+    <!-- Spells tab -->
+    <div class="tab" data-group="primary" data-tab="spells">
+      <h3>Prepared Spell Frames / Built Spells</h3>
+      <table class="spells-table">
+        <thead>
+          <tr><th>Name / Notes</th><th>Targets</th><th>Range</th><th>Area</th><th>Base‑AS</th></tr>
+        </thead>
+        <tbody>
+          {{#each system.spells as |spell i|}}
+          <tr>
+            <td><input type="text" name="system.spells.{{i}}.name" value="{{spell.name}}"/></td>
+            <td><input type="number" name="system.spells.{{i}}.targets" value="{{spell.targets}}" min="0"/></td>
+            <td><input type="text" name="system.spells.{{i}}.range" value="{{spell.range}}"/></td>
+            <td><input type="text" name="system.spells.{{i}}.area" value="{{spell.area}}"/></td>
+            <td><input type="number" name="system.spells.{{i}}.baseAS" value="{{spell.baseAS}}" min="0"/></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+    <!-- Features tab -->
+    <div class="tab" data-group="primary" data-tab="features">
+      <h3>Class Features & Feats</h3>
+      <div class="features-grid">
+        {{#each system.features as |levelFeats level|}}
+        <div class="feature-level">
+          <h4>L{{level}}</h4>
+          <ul>
+            {{#each levelFeats}}
+            <li>{{this}}</li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <!-- Inventory tab -->
+    <div class="tab" data-group="primary" data-tab="inventory">
+      <h3>Inventory & Currency</h3>
+      <p>Bulk limit: <strong>5 + STR mod</strong></p>
+      <div class="credits-field">
+        <label>Credits</label>
+        <input type="number" name="system.credits" value="{{system.credits}}" min="0"/>
+      </div>
+      <table class="inventory-table">
+        <thead>
+          <tr><th>Item / Notes</th><th>Qty</th><th>Bulk</th></tr>
+        </thead>
+        <tbody>
+          {{#each actor.items as |item|}}
+          <tr class="item" data-item-id="{{item.id}}">
+            <td>{{item.name}}</td>
+            <td>{{item.system.quantity}}</td>
+            <td>{{item.system.bulk}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
   </section>
 </form>

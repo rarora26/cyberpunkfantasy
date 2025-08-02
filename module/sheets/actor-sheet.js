@@ -1,4 +1,5 @@
-import { CyberpunkFantasyItemSheet } from './item-sheet.js';
+// Note: Item sheet import is unused here but retained for potential future expansions.
+// import { CyberpunkFantasyItemSheet } from './item-sheet.js';
 
 /**
  * CyberpunkFantasyActorSheet
@@ -18,7 +19,7 @@ export class CyberpunkFantasyActorSheet extends ActorSheet {
       width: 680,
       height: 730,
       tabs: [
-        { navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'stats' }
+        { navSelector: '.sheet-tabs', contentSelector: '.sheet-body', initial: 'skills' }
       ]
     });
   }
@@ -36,6 +37,28 @@ export class CyberpunkFantasyActorSheet extends ActorSheet {
     super.activateListeners(html);
     // If the sheet is not editable there is nothing to do.
     if (!this.isEditable) return;
-    // Add custom listeners here as your system grows.
+    // Highlight drop zones when dragging items
+    html.find('.feature-level ul').on('dragover', ev => {
+      ev.preventDefault();
+      ev.currentTarget.classList.add('dragover');
+    });
+    html.find('.feature-level ul').on('dragleave', ev => {
+      ev.currentTarget.classList.remove('dragover');
+    });
+    // Delegate drop handling to the sheet
+    html.find('.feature-level ul').on('drop', ev => this._onDrop(ev));
+  }
+
+  /**
+   * Handle dropping of items onto this actor sheet.  By default we allow the
+   * dropped item to be created on the actor.  You could extend this logic to
+   * categorise class or feat items by level.
+   *
+   * @param {DragEvent} event
+   */
+  async _onDrop(event) {
+    const data = await TextEditor.getDragEventData(event);
+    // Call the parent drop handler to create the item on the actor.
+    return super._onDrop(event);
   }
 }

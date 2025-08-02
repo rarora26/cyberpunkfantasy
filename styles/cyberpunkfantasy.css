@@ -1,125 +1,319 @@
-/* Cyberpunk Fantasy System base styles */
+/* Cyberpunk Fantasy System styles */
 
-/* Basic resets */
-.cyberpunkfantasy .sheet-header {
+/* Global styling for the dark matrix vibe */
+.cyberpunkfantasy {
+  font-family: "Share Tech Mono", monospace;
+  color: #a6ffea;
+  background: #0a0e23;
+  padding: 0.5rem;
+}
+
+/* Title */
+.cyberpunkfantasy .sheet-title {
+  text-align: center;
+  font-size: 1.4rem;
+  color: #ff6bd6;
+  margin-bottom: 0.5rem;
+  border-top: 2px solid #00ff88;
+  border-bottom: 2px solid #00ff88;
+  padding: 0.3rem 0;
+}
+
+/* Meta grid */
+.cyberpunkfantasy .meta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 0.5rem;
   margin-bottom: 0.5rem;
 }
 
-.cyberpunkfantasy .profile-img {
-  border: 1px solid #666;
-  border-radius: 4px;
-  width: 64px;
-  height: 64px;
-  margin-right: 0.5rem;
+.cyberpunkfantasy .meta-field label {
+  display: block;
+  font-size: 0.7rem;
+  color: #8aff80;
 }
-
-.cyberpunkfantasy .header-fields {
-  flex: 1;
-}
-
-.cyberpunkfantasy .char-name input {
-  font-size: 1.5rem;
+.cyberpunkfantasy .meta-field input {
   width: 100%;
   background: transparent;
   border: none;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #00ff88;
+  color: #fff;
+  padding: 0.1rem 0;
+}
+.cyberpunkfantasy .meta-field input:focus {
+  outline: none;
+  border-bottom-color: #ff6bd6;
 }
 
-.cyberpunkfantasy .resource-grid {
+/* Stats grid */
+.cyberpunkfantasy .stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.cyberpunkfantasy .attributes-block,
+.cyberpunkfantasy .derived-block {
+  flex: 1;
+  min-width: 280px;
+  border: 1px solid #00ff88;
+  padding: 0.5rem;
+  border-radius: 6px;
+  background: #111827;
+}
+.cyberpunkfantasy h3 {
+  margin-top: 0;
+  font-size: 1rem;
+  color: #ff6bd6;
+  border-bottom: 1px solid #00ff88;
+  padding-bottom: 0.2rem;
+}
+.cyberpunkfantasy h4 {
+  margin: 0.5rem 0 0.2rem;
+  font-size: 0.8rem;
+  color: #8aff80;
+}
+
+.cyberpunkfantasy .attribute-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+  gap: 0.4rem;
+}
+.cyberpunkfantasy .ability-field label {
+  font-size: 0.7rem;
+  color: #8aff80;
+}
+.cyberpunkfantasy .ability-field input {
+  width: 100%;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
+.cyberpunkfantasy .modifier {
+  display: block;
+  font-size: 0.75rem;
+  color: #ff6bd6;
+  margin-top: 0.1rem;
+  text-align: center;
+}
+
+.cyberpunkfantasy .saves-grid {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+.cyberpunkfantasy .save-field label {
+  font-size: 0.7rem;
+  color: #8aff80;
+}
+.cyberpunkfantasy .save-field input {
+  width: 60px;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
+
+.cyberpunkfantasy .derived-block .derived-field {
+  margin-bottom: 0.4rem;
+}
+.cyberpunkfantasy .derived-field label {
+  font-size: 0.7rem;
+  color: #8aff80;
+  display: block;
+}
+.cyberpunkfantasy .derived-field input {
+  width: 100%;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.2rem;
+}
+.cyberpunkfantasy .derived-field .temp input {
+  width: 60px;
+  margin-left: 0.3rem;
+}
+
+/* Tab navigation */
+.cyberpunkfantasy .sheet-tabs {
+  display: flex;
+  margin-top: 0.6rem;
+  border-bottom: 1px solid #00ff88;
+}
+.cyberpunkfantasy .sheet-tabs .item {
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  color: #00ff88;
+  border: 1px solid #00ff88;
+  border-bottom: none;
+  border-radius: 4px 4px 0 0;
+  margin-right: 0.3rem;
+  background: #0a0e23;
+  font-size: 0.8rem;
+}
+.cyberpunkfantasy .sheet-tabs .item.active {
+  background: #111827;
+  color: #ff6bd6;
+  border-bottom: 1px solid #111827;
+}
+
+/* Tab bodies */
+.cyberpunkfantasy .sheet-body {
+  padding-top: 0.5rem;
+  color: #a6ffea;
+}
+.cyberpunkfantasy .tab {
+  display: none;
+}
+.cyberpunkfantasy .tab.active {
+  display: block;
+}
+
+/* Skills */
+.cyberpunkfantasy .skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.4rem;
+}
+.cyberpunkfantasy .skill-field label {
+  font-size: 0.8rem;
+  color: #8aff80;
+}
+.cyberpunkfantasy .skill-field input {
+  width: 60px;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  margin-left: 0.4rem;
+  padding: 0.2rem;
+}
+
+/* Cybernetics */
+.cyberpunkfantasy .cybernetics-table,
+.cyberpunkfantasy .spells-table,
+.cyberpunkfantasy .inventory-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 0.5rem;
+}
+
+/* Item sheet styling */
+.cyberpunkfantasy.item-sheet {
+  background: #0a0e23;
+  color: #a6ffea;
+  font-family: "Share Tech Mono", monospace;
+  padding: 0.5rem;
+}
+.cyberpunkfantasy.item-sheet .sheet-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  border-bottom: 1px solid #00ff88;
+  padding-bottom: 0.3rem;
+}
+.cyberpunkfantasy.item-sheet .item-img {
+  width: 64px;
+  height: 64px;
+  margin-right: 0.5rem;
+  border: 1px solid #00ff88;
+  border-radius: 4px;
+}
+.cyberpunkfantasy.item-sheet .item-name input {
+  font-size: 1.2rem;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #00ff88;
+  color: #ff6bd6;
+}
+.cyberpunkfantasy.item-sheet label {
+  display: block;
+  font-size: 0.8rem;
+  color: #8aff80;
+}
+.cyberpunkfantasy.item-sheet input,
+.cyberpunkfantasy.item-sheet textarea {
+  width: 100%;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.3rem;
+  margin-bottom: 0.4rem;
+}
+.cyberpunkfantasy table th,
+.cyberpunkfantasy table td {
+  border: 1px solid #00ff88;
+  padding: 0.3rem;
+  text-align: left;
+  font-size: 0.8rem;
+}
+.cyberpunkfantasy table th {
+  background: #111827;
+  color: #ff6bd6;
+}
+.cyberpunkfantasy table input {
+  width: 100%;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  padding: 0.2rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+}
+
+/* Features */
+.cyberpunkfantasy .features-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
   gap: 0.5rem;
 }
-
-.cyberpunkfantasy .resource {
-  display: flex;
-  flex-direction: column;
+.cyberpunkfantasy .feature-level h4 {
+  font-size: 0.9rem;
+  color: #ff6bd6;
+  margin-bottom: 0.2rem;
 }
-
-.cyberpunkfantasy .resource label {
-  font-weight: bold;
-  font-size: 0.75rem;
-}
-
-.cyberpunkfantasy .resource input {
-  width: 100%;
-}
-
-/* Tabs */
-.cyberpunkfantasy .sheet-tabs {
-  margin-bottom: 0.5rem;
-}
-
-.cyberpunkfantasy .sheet-tabs .item {
-  padding: 0.3rem 0.6rem;
-  border: 1px solid #555;
-  border-bottom: none;
-  border-radius: 4px 4px 0 0;
-  margin-right: 0.2rem;
-  cursor: pointer;
-}
-
-.cyberpunkfantasy .sheet-tabs .item.active {
-  background: #333;
-  color: #fff;
-}
-
-/* Body */
-.cyberpunkfantasy .sheet-body {
-  border: 1px solid #555;
-  border-radius: 0 4px 4px 4px;
-  padding: 0.5rem;
-  background: #1e1e1e;
-  color: #ddd;
-}
-
-/* Ability grid */
-.cyberpunkfantasy .abilities-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 0.5rem;
-  margin-top: 0.5rem;
-}
-
-.cyberpunkfantasy .ability {
-  text-align: center;
-  background: #2a2a2a;
-  padding: 0.5rem;
-  border-radius: 4px;
-}
-
-.cyberpunkfantasy .ability input {
-  width: 60px;
-  text-align: center;
-}
-
-.cyberpunkfantasy .ability-mod {
-  display: block;
-  font-size: 0.8rem;
-  margin-top: 0.2rem;
-}
-
-/* Items list */
-.cyberpunkfantasy .items-list {
+.cyberpunkfantasy .feature-level ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  min-height: 1.6rem;
+  border: 1px dashed #00ff88;
+  padding: 0.2rem;
+}
+.cyberpunkfantasy .feature-level li {
+  margin-bottom: 0.2rem;
 }
 
-.cyberpunkfantasy .items-list li {
-  display: flex;
-  align-items: center;
-  padding: 0.3rem 0;
-  border-bottom: 1px solid #444;
+/* Inventory */
+.cyberpunkfantasy .credits-field {
+  margin-top: 0.5rem;
+}
+.cyberpunkfantasy .credits-field label {
+  font-size: 0.8rem;
+  color: #8aff80;
+}
+.cyberpunkfantasy .credits-field input {
+  width: 120px;
+  background: #1f2937;
+  border: 1px solid #00ff88;
+  color: #fff;
+  border-radius: 4px;
+  padding: 0.2rem;
+  margin-left: 0.4rem;
 }
 
-.cyberpunkfantasy .items-list li img {
-  margin-right: 0.5rem;
-  border-radius: 3px;
-  border: 1px solid #333;
-}
-
-.cyberpunkfantasy .items-list li h4 {
-  margin: 0;
-  font-size: 1rem;
+/* Drag & Drop highlight */
+.cyberpunkfantasy .item.dragover,
+.cyberpunkfantasy .feature-level ul.dragover {
+  border-color: #ff6bd6;
+  background: #211f3a;
 }
