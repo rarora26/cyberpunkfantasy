@@ -1,0 +1,28 @@
+{
+  "CYBERPUNKFANTASY": {
+    "Actor": {
+      "TypeLabel": {
+        "character": "Character",
+        "npc": "NPC"
+      },
+      "Fields": {
+        "level": "Level",
+        "hp": "Hit Points",
+        "stress": "Arcane Stress"
+      }
+    },
+    "Item": {
+      "TypeLabel": {
+        "class": "Class",
+        "cybernetic": "Cybernetic",
+        "exploit": "Exploit",
+        "feat": "Feat",
+        "gun": "Firearm",
+        "weapon": "Weapon",
+        "armor": "Armor",
+        "injector": "Injector",
+        "spell": "Spell"
+      }
+    }
+  }
+}

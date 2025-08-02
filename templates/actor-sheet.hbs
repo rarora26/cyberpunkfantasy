@@ -1,0 +1,70 @@
+<form class="cyberpunkfantasy actor-sheet" autocomplete="off">
+  <header class="sheet-header flexrow">
+    <div class="profile">
+      <img class="profile-img" src="{{actor.img}}" data-edit="img" title="{{actor.name}}"/>
+    </div>
+    <div class="header-fields flexcol">
+      <h1 class="char-name"><input name="name" type="text" value="{{actor.name}}" placeholder="Name"/></h1>
+      <div class="resource-grid">
+        <div class="resource">
+          <label>Level</label>
+          <input type="number" name="system.level" value="{{system.level}}" min="0"/>
+        </div>
+        <div class="resource">
+          <label>HP</label>
+          <input type="number" name="system.attributes.hp.value" value="{{system.attributes.hp.value}}" min="0"/>
+          /
+          <input type="number" name="system.attributes.hp.max" value="{{system.attributes.hp.max}}" min="0"/>
+        </div>
+        <div class="resource">
+          <label>Temp HP</label>
+          <input type="number" name="system.attributes.hp.temp" value="{{system.attributes.hp.temp}}" min="0"/>
+        </div>
+        <div class="resource">
+          <label>Arcane Stress</label>
+          <input type="number" name="system.resources.stress.value" value="{{system.resources.stress.value}}" min="0"/>
+          /
+          <input type="number" name="system.resources.stress.threshold" value="{{system.resources.stress.threshold}}" min="0"/>
+        </div>
+      </div>
+    </div>
+  </header>
+  <nav class="sheet-tabs tabs" data-group="primary">
+    <a class="item" data-tab="stats">Stats</a>
+    <a class="item" data-tab="inventory">Inventory</a>
+    <a class="item" data-tab="features">Features</a>
+  </nav>
+  <section class="sheet-body">
+    <div class="tab stats" data-group="primary">
+      <h2>Ability Scores</h2>
+      <div class="abilities-grid">
+        {{#each abilities as |ability key|}}
+        <div class="ability">
+          <label class="ability-name">{{key}}</label>
+          <input type="number" name="system.abilities.{{key}}.value" value="{{ability.value}}" min="1"/>
+          <span class="ability-mod">{{numberFormat ability.mod decimals=0 sign=true}}</span>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    <div class="tab inventory" data-group="primary">
+      <h2>Inventory</h2>
+      {{#if actor.items.size}}
+      <ol class="items-list">
+        {{#each actor.items as |item|}}
+        <li class="item flexrow" data-item-id="{{item.id}}">
+          <img src="{{item.img}}" class="item-img" title="{{item.name}}" width="32" height="32"/>
+          <h4 class="item-name">{{item.name}}</h4>
+        </li>
+        {{/each}}
+      </ol>
+      {{else}}
+      <p>No items.</p>
+      {{/if}}
+    </div>
+    <div class="tab features" data-group="primary">
+      <h2>Features</h2>
+      <p>Use this tab to list class abilities, feats, cybernetics and other special rules.  Drag items from the compendium or create new ones.</p>
+    </div>
+  </section>
+</form>

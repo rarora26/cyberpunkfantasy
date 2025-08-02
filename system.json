@@ -1,0 +1,118 @@
+{
+  "id": "cyberpunkfantasy",
+  "title": "Cyberpunk Fantasy",
+  "description": "A home‑brew mashup of gritty cyberpunk and high fantasy.  Characters wield spell‑cartridges, cybernetic implants and powerful exploits while balancing their arcane stress threshold.  The system includes six core classes (Vanguard, Gunner, Hacker, Caster, Trifler and Ripperdoc), a modular spell builder, feats, cybernetics, injectors, weapons, guns and armor drawn from the included rule handouts.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "CyberpunkFantasy Dev",
+      "url": "https://github.com/your‑github‑username/cyberpunkfantasy",
+      "email": "",
+      "discord": ""
+    }
+  ],
+  "url": "https://github.com/your‑github‑username/cyberpunkfantasy",
+  "license": "LICENSE.txt",
+  "readme": "README.md",
+  "bugs": "https://github.com/your‑github‑username/cyberpunkfantasy/issues",
+  "changelog": "CHANGELOG.md",
+  "media": [],
+  "compatibility": {
+    "minimum": "11",
+    "verified": "11"
+  },
+  "esmodules": ["module/cyberpunkfantasy.mjs"],
+  "styles": ["styles/cyberpunkfantasy.css"],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "packs": [
+    {
+      "name": "classes",
+      "label": "Core Classes",
+      "type": "Item",
+      "path": "packs/classes",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "cybernetics",
+      "label": "Cybernetics",
+      "type": "Item",
+      "path": "packs/cybernetics",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "exploits",
+      "label": "Exploits",
+      "type": "Item",
+      "path": "packs/exploits",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "feats",
+      "label": "Feats",
+      "type": "Item",
+      "path": "packs/feats",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "guns",
+      "label": "Firearms",
+      "type": "Item",
+      "path": "packs/guns",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "armor",
+      "label": "Armor & Melee",
+      "type": "Item",
+      "path": "packs/armor",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "injectors",
+      "label": "Injectors",
+      "type": "Item",
+      "path": "packs/injectors",
+      "system": "cyberpunkfantasy"
+    },
+    {
+      "name": "spells",
+      "label": "Spell Templates",
+      "type": "Item",
+      "path": "packs/spells",
+      "system": "cyberpunkfantasy"
+    }
+  ],
+  "documentTypes": {
+    "Actor": {
+      "character": {},
+      "npc": {}
+    },
+    "Item": {
+      "class": {},
+      "cybernetic": {},
+      "exploit": {},
+      "feat": {},
+      "gun": {},
+      "weapon": {},
+      "armor": {},
+      "injector": {},
+      "spell": {}
+    }
+  },
+  "socket": false,
+  "initiative": "1d20 + @abilities.dex.mod",
+  "grid": {
+    "distance": 5,
+    "units": "ft"
+  },
+  "primaryTokenAttribute": "system.attributes.hp",
+  "secondaryTokenAttribute": "system.resources.stress",
+  "manifest": "https://raw.githubusercontent.com/your‑github‑username/cyberpunkfantasy/main/system.json",
+  "download": "https://github.com/your‑github‑username/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
+}
