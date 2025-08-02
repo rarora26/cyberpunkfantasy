@@ -6,20 +6,20 @@
   "authors": [
     {
       "name": "CyberpunkFantasy Dev",
-      "url": "https://github.com/your‑github‑username/cyberpunkfantasy",
+      "url": "https://github.com/rarora26/cyberpunkfantasy",
       "email": "",
       "discord": ""
     }
   ],
-  "url": "https://github.com/your‑github‑username/cyberpunkfantasy",
+  "url": "https://github.com/rarora26/cyberpunkfantasy",
   "license": "LICENSE.txt",
   "readme": "README.md",
-  "bugs": "https://github.com/your‑github‑username/cyberpunkfantasy/issues",
+  "bugs": "https://github.com/rarora26/cyberpunkfantasy/issues",
   "changelog": "CHANGELOG.md",
   "media": [],
   "compatibility": {
-    "minimum": "11",
-    "verified": "11"
+    "minimum": "13",
+    "verified": "13"
   },
   "esmodules": ["module/cyberpunkfantasy.mjs"],
   "styles": ["styles/cyberpunkfantasy.css"],
@@ -90,8 +90,8 @@
   ],
   "documentTypes": {
     "Actor": {
-      "character": {},
-      "npc": {}
+      "Player Character": {},
+      "NPC": {}
     },
     "Item": {
       "class": {},
@@ -113,6 +113,6 @@
   },
   "primaryTokenAttribute": "system.attributes.hp",
   "secondaryTokenAttribute": "system.resources.stress",
-  "manifest": "https://raw.githubusercontent.com/your‑github‑username/cyberpunkfantasy/main/system.json",
-  "download": "https://github.com/your‑github‑username/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
+  "manifest": "https://raw.githubusercontent.com/rarora26/cyberpunkfantasy/main/system.json",
+  "download": "https://github.com/rarora26/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
 }
