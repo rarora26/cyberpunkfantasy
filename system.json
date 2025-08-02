@@ -2,7 +2,7 @@
   "id": "cyberpunkfantasy",
   "title": "Cyberpunk Fantasy",
   "description": "A home‑brew mashup of gritty cyberpunk and high fantasy.  Characters wield spell‑cartridges, cybernetic implants and powerful exploits while balancing their arcane stress threshold.  The system includes six core classes (Vanguard, Gunner, Hacker, Caster, Trifler and Ripperdoc), a modular spell builder, feats, cybernetics, injectors, weapons, guns and armor drawn from the included rule handouts.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "authors": [
     {
       "name": "CyberpunkFantasy Dev",
@@ -114,5 +114,5 @@
   "primaryTokenAttribute": "system.attributes.hp",
   "secondaryTokenAttribute": "system.resources.stress",
   "manifest": "https://raw.githubusercontent.com/rarora26/cyberpunkfantasy/main/system.json",
-  "download": "https://github.com/rarora26/cyberpunkfantasy/releases/download/v0.1.0/cyberpunkfantasy.zip"
+  "download": "https://github.com/rarora26/cyberpunkfantasy/releases/download/v0.1.1/cyberpunkfantasy.zip"
 }
